@@ -1,4 +1,4 @@
-//!Arrays: Uppercase, lowercase, numeric, special characters
+//Arrays: Uppercase, lowercase, numeric, special characters
 var upperCaseArray = "ABCDEFGHIJKLMNOPQRSTUVWYZ".split("");
 var lowerCaseArray = "abcdefghijklmnopqrstuvwyz".split ("");
 var numberArray = "0123456789".split("");
@@ -12,6 +12,7 @@ var confirmNumericCase = false;
 var confirmSpecialCharacters = false;
 var passwordLength="";
 var password ="";
+//var myNumber;
 
 
 
@@ -30,11 +31,9 @@ function passwordPrompts(){
 
 function getRandomInt(max) {
     var myNumber= Math.floor(Math.random() * Math.floor(max));
-    console.log(myNumber)
+   return myNumber;
   }
   
-
-
 
 //generate password
     function generatePassword(){
@@ -51,27 +50,36 @@ function getRandomInt(max) {
  confirmSpecialChars = document.getElementById("specialchars").checked;
     
 
+    
+    //funtion confirm
+    console.log(confirmUpperCase);
 
-    //!funtion confirm
-    if (confirmUpperCase == "true"){
+    if (confirmUpperCase){
         //password+=upperCaseArray[getRandomInt(25)];
-        //alert ("hi")
-        }
-        
+        //var random = getRandomInt(25);
+        //console.log(random, upperCaseArray)
+        password+=upperCaseArray[getRandomInt(25)]
+        //alert (upperCaseArray[random])
+        } 
     
-    if (confirmLowerCase == "true"){
+    if (confirmLowerCase){
         //alert ("must choose one lowercase");
+        password+=lowerCaseArray[getRandomInt(25)]
         }
     
-    if (confirmNumericCase == "true"){
+    if (confirmNumericCase){
         //alert ("must choose one number");
+        password+=numberArray[getRandomInt(9)]
+        
         }
     
-    if (confirmSpecialChars == "true"){
+    if (confirmSpecialChars){
         //alert ("must choose one specialchars");
+        password+=specialCharsArray[getRandomInt(specialCharsArray.length-1)]
+        
         }
 
-// if(length is less than 8 or length is greater than 128)
+        // if(length is less than 8 or length is greater than 128)
     if (length < 8 ||  length > 128 ) {
         alert("remember, password must be greather than 8 and less than 128")
     };
@@ -83,10 +91,8 @@ function getRandomInt(max) {
 // Write password to the #password input
 //todo: Write password to the #password input
     function writePassword() {
-   
     generatePassword();
     var passwordText = document.querySelector("#password");
-
     passwordText.value = password;
 
 }
