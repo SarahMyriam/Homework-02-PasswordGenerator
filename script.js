@@ -12,9 +12,6 @@ var confirmNumericCase = false;
 var confirmSpecialCharacters = false;
 var passwordLength = "";
 var password = "";
-//var myNumber;
-
-
 
 //assignment code
 var generateBtn = document.querySelector("#generate");
@@ -34,10 +31,9 @@ function getRandomInt(max) {
     return myNumber;
 }
 
-
 //generate password
 function generatePassword() {
-    password="";
+    password = "";
 
     length = document.getElementById("number").value;
 
@@ -54,8 +50,6 @@ function generatePassword() {
 
 }
 
-
-
 function addCharsPassword(length) {
     //funtion confirm
     console.log(length);
@@ -70,21 +64,17 @@ function addCharsPassword(length) {
     confirmSpecialChars = document.getElementById("specialchars").checked;
     console.log(confirmUpperCase);
 
-    var i=0;
+    var i = 0;
 
-    //while loop
-
+    //while loop to generate password to the correct length
     while (i < length) {
         console.log("The number is" + i);
         i++;
-      
 
         if (confirmUpperCase && password.length < length) {
-            //password+=upperCaseArray[getRandomInt(25)];
-            //var random = getRandomInt(25);
-            //console.log(random, upperCaseArray)
-            password += upperCaseArray[getRandomInt(25)]
             //alert (upperCaseArray[random])
+            password += upperCaseArray[getRandomInt(25)]
+            
         }
 
         if (confirmLowerCase && password.length < length) {
@@ -110,10 +100,6 @@ function addCharsPassword(length) {
 }
 
 
-
-
-
-
 // Write password to the #password input
 //todo: Write password to the #password input
 function writePassword() {
@@ -127,10 +113,6 @@ function writePassword() {
 //?:Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-//*set password 
-//letlength = document.getElementById("number").value;
 
 //!PSEUDOCODE
 /*
